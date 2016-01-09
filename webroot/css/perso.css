@@ -1,0 +1,18 @@
+.contenu{
+	position: relative;
+}
+
+.menu{
+
+}
+
+#titre{
+	text-align: center;
+}
+
+#map {
+	height: 65%;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
