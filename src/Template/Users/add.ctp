@@ -1,5 +1,5 @@
 <div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
+    <?= $this->Form->create($user, [ 'url' => ['controller' => 'Pages', 'action' => 'index' ] ]) ?>
     <fieldset>
         <legend><?= __('Inscription') ?></legend>
         <?php
@@ -13,7 +13,7 @@
             echo $this->Form->input('ville');
             echo $this->Form->input('cp', ['label' => 'Code Postal']);
             echo $this->Form->input('adresse');
-            // echo $this->Form->input('dateInscription');
+            echo $this->Form->hidden('dateInscription', ['value' => time()]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Envoyer')) ?>

@@ -109,4 +109,19 @@ class OrdersController extends AppController
         $this->set('_serialize', ['order']);
     }
 
+    public function deleteProduct($id)
+    {
+        //$this->request->allowMethod(['post', 'delete']);
+        $this->loadModel('Products');
+        $session = $this->request->session();
+
+        $produits = $session->read('produits');
+        array_splice($produits, $i, $i-1);
+                    
+        $session->write('produits', $produits);
+                
+        return $this->redirect(['action' => 'index']);
+        
+    }
+
 }

@@ -20,14 +20,14 @@ class MealsController extends AppController
 
     public function index()
     {
-        if($this->request->is('get')) {
+        if($this->request->is('get') && isset($_GET['id'])) {
             $session = $this->request->session();
             $session->write('restaurant', $_GET['id']);
         }
 
         $meals = $this->Meals->find('all');
         $this->set('meals', $meals);
-        $this->set('_serialize', ['meals']);
+        //$this->set('_serialize', ['meals']);
 
         $this->loadModel('MealsTypes');
         $this->loadModel('Products');
@@ -38,13 +38,15 @@ class MealsController extends AppController
         endforeach;
 
         $this->set('prix', $prix);
-        $this->set('_serialize', ['prix']);
+        //$this->set('_serialize', ['prix']);
 
         $this->loadModel('Categories');
 
         $categories = $this->Categories->find('all');
         $this->set('categories', $categories);
-        $this->set('_serialize', ['categories']);
+        //$this->set('_serialize', ['categories']);
+
+        //$this->set('_serialize', true);
 
         $form = new MealForm();
 

@@ -42,7 +42,7 @@ $cakeDescription = 'BurgerKing Livraison';
 
             </ul>
             <ul class="right">
-                <li><?= $this->Html->link("Mon Panier", ['controller' => 'Orders', 'action' => 'index']) ?></li>                
+                <li><button id ="panier">Mon panier</button></li>                
                 <?php
                 if (!is_null($this->request->session()->read('Auth.User.id'))){
                 ?>
@@ -63,5 +63,21 @@ $cakeDescription = 'BurgerKing Livraison';
     </section>
     <footer>
     </footer>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
+    <script>
+        paypal.minicart.render({
+        action: "https://www.sandbox.paypal.com/cgi-bin/webscr",
+        strings: {
+            button: "Commander",
+            buttonAlt: "Total:",
+            discount: "Reduction:",
+            subtotal: "Sous-Total:" 
+        }
+        });
+        $( "#panier" ).click(function() {
+            paypal.minicart.view.show()
+        });
+    </script>
 </body>
 </html>

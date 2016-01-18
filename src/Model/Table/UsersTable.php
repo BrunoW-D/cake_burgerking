@@ -59,10 +59,10 @@ class UsersTable extends Table
             ->requirePresence('password', 'create')
             ->notEmpty('password');
 
-        /*$validator
+        $validator
             ->requirePresence('role', 'create')
             ->allowEmpty('role');
-        */
+        
 
         $validator
             ->requirePresence('nom', 'create')
@@ -88,12 +88,12 @@ class UsersTable extends Table
             ->requirePresence('adresse', 'create')
             ->notEmpty('adresse');
 
-        /*
+        
         $validator
             ->add('dateInscription', 'valid', ['rule' => 'datetime'])
             ->requirePresence('dateInscription', 'create')
             ->notEmpty('dateInscription');
-        */
+        
 
         return $validator;
     }

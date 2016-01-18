@@ -1,33 +1,33 @@
 
     <h1 id="titre">Nos restaurants</h1>
-    
-    <?php
-    $i = 0;
-    foreach ($restaurants as $restaurant):
-      $listeAdresse[$i] = $restaurant->adresse;
-      $listeCp[$i] = $restaurant->cp;
-      $listeVille[$i] = $restaurant->town_id;
-      $listeLat[$i] = $restaurant->latitude;
-      $listeLng[$i] = $restaurant->longitude;
-      $listeId[$i] = $restaurant->id;
-      $i++;
-    endforeach;
-
-    $listeAdresse = json_encode($listeAdresse);
-    $listeCp = json_encode($listeCp);
-    $listeVille = json_encode($listeVille);
-    $listeLat = json_encode($listeLat);
-    $listeLng = json_encode($listeLng);
-    $listeId = json_encode($listeId);
-    ?>
-
-    <div id="map"></div>
-    
-    <script src="js/map.js">
-
-      
-
+    <?= $this->Html->script('jquery-1.12.0'); ?>
+    <script type="text/javascript" src="//www.google.fr/jsapi"></script>
+    <script type="text/javascript">
+      google.load("maps", "3.4", {
+        other_params: "sensor=false&language=fr"
+      });
     </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxP0ew2KsKFW9MW3vJPL-eY3E5qXBo6i8&signed_in=true&callback=initMap">
+    <?= $this->Html->script('jquery.googlemap.js'); ?>
+
+    <div id="map" style="width: 500px; height: 400px;"></div>
+
+    <script type="text/javascript">
+      var listeAdresse = <?php echo $listeAdresse;?>;
+      var listeCp = <?php echo $listeCp; ?>;
+      var listeVille = <?php echo $listeVille; ?>;
+      var listeId = <?php echo $listeId; ?>;
+
+      $(function() {
+        $("#map").googleMap();
+        for(var i = 0; i < listeId.length; i++){
+      
+          $("#map").addMarker({
+            address: listeAdresse[i], // Postale Address
+            //url: "../meals/" + listeId[i], // Link
+            icon: "../webroot/img/burgerking_icon.png",
+            title: listeVille[i],
+            text: "<p>" + listeCp[i] + " - " + listeAdresse[i] + "</p>" + " <a href='../meals?id=" + listeId[i] + "'>Commander chez ce restaurant</a>"
+          });
+        }
+      })
     </script>

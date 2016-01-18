@@ -16,3 +16,10 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+#PPMiniCart ul
+{
+max-height: 200px !important;
+overflow-y: auto !important;
+overflow-x: hidden !important;
+}

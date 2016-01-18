@@ -1,4 +1,4 @@
-<?php echo $this->element('menu'); ?>
+<?php //echo $this->element('menu'); ?>
 
     <?php foreach ($products as $product): ?>
     <div>
@@ -6,8 +6,7 @@
         <br/>
         <?= $product->description ?>
         <br/>
-        <!-- <?= $this->Html->image($product->image, ['alt' => "photo ".$product->nom, 'fullBase' => true]); ?> -->
-        <img src=<?= $product->image ?> />
+        <?= $this->Html->image($product->image, ['alt' => "photo ".$product->nom, 'fullBase' => true]); ?>
         <br/>
         <?= $this->Html->link('Choisir Boisson', ['action' => 'choose3', $plat, $accompagnement, $product->id]) ?>
         <br/>
