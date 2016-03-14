@@ -11,6 +11,7 @@ use App\Controller\AppController;
 class RestaurantsController extends AppController
 {
 
+    // non utilisée
     /**
      * Index method
      *
@@ -57,11 +58,11 @@ class RestaurantsController extends AppController
         $this->set('listeVille', $listeVille);
         $this->set('listeId', $listeId);
         
-
         //$this->set('restaurants', $restaurants);
         //$this->set('_serialize', ['restaurants']);
     }
 
+    // non utilisée
     /**
      * View method
      *

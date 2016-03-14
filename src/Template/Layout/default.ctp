@@ -65,19 +65,39 @@ $cakeDescription = 'BurgerKing Livraison';
     </footer>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
-    <script>
-        paypal.minicart.render({
-        action: "https://www.sandbox.paypal.com/cgi-bin/webscr",
-        strings: {
-            button: "Commander",
-            buttonAlt: "Total:",
-            discount: "Reduction:",
-            subtotal: "Sous-Total:" 
-        }
+    <script type="text/javascript">
+    (function($) {
+        // on peut utiliser le $ de jQuery       
+        $(document).ready(function() {
+            // le DOM est chargé
+            paypal.minicart.render({
+                action: "https://www.sandbox.paypal.com/cgi-bin/webscr",
+                strings: {
+                    button: "Commander",
+                    buttonAlt: "Total:",
+                    discount: "Reduction:",
+                    subtotal: "Sous-Total:",
+                    empty: "Votre panier est vide" 
+                }
+            });
+            $( "#panier" ).click(function() {
+                paypal.minicart.view.show()
+            });
+
+            paypal.minicart.cart.on('add', function(){
+                var cart = JSON.stringify(paypal.minicart.cart.items());
+                $.ajax({url: "http://127.0.0.1/burgerking/orders/ajax", type: "post", data: {"cart": cart, "total": paypal.minicart.cart.subtotal() }});
+            } );
+
+            paypal.minicart.cart.on('remove', function(){
+                var cart = JSON.stringify(paypal.minicart.cart.items());
+                $.ajax({url: "http://127.0.0.1/burgerking/orders/ajax", type: "post", data: {"cart": cart, "total": paypal.minicart.cart.subtotal() }});
+            } );
+
+            var event = new CustomEvent('endscript');
+            window.dispatchEvent(event);
         });
-        $( "#panier" ).click(function() {
-            paypal.minicart.view.show()
-        });
+    })(jQuery);
     </script>
 </body>
 </html>

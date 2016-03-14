@@ -19,7 +19,11 @@
 
 #PPMiniCart ul
 {
-max-height: 200px !important;
-overflow-y: auto !important;
-overflow-x: hidden !important;
+	max-height: 200px !important;
+	overflow-y: auto !important;
+	overflow-x: hidden !important;
+}
+
+#PPMiniCart .minicart-submit {
+	bottom: 0px !important;
 }
