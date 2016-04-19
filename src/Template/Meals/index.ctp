@@ -1,4 +1,4 @@
-<?php //echo $this->element('menu'); ?>
+<?php echo $this->element('menu'); ?>
 
     <?php foreach ($meals as $meal): ?>
     <div>

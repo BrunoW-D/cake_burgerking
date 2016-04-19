@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\I18n\Time;
 
 /**
  * Application Controller
@@ -57,6 +58,8 @@ class AppController extends Controller
                 'home'
             ]
         ]);
+
+        Time::$defaultLocale = 'fr-FR';
         
     }
 

@@ -43,7 +43,7 @@ class UsersController extends AppController
      * @return void
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function view($id = null)
+    public function info($id = null)
     {
         $user = $this->Users->get($id, [
             'contain' => ['Orders']
@@ -98,4 +98,17 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
 
+    public function isAuthorized($user){
+
+        if (in_array($this->request->action, ['edit', 'info'])) {
+            $userId = (int)$this->request->params['pass'][0];
+            if ($this->Auth->user('id') === $userId) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
 }
