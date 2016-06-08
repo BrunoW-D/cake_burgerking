@@ -1,16 +1,14 @@
-<?php //echo $this->element('menu'); ?>
+<?php echo $this->element('menu'); ?>
 
+<div class="index large-9 medium-8 columns content">
     <?php foreach ($products as $product): ?>
-    <div>
+    <div class="row">
         <h4><?= $product->nom ?></h4>
-        <br/>
-        <?= $product->description ?>
-        <br/>
-        <?= $this->Html->image($product->image, ['alt' => "photo ".$product->nom, 'fullBase' => true]); ?>
-        
-        <br/>
+        <?= $this->Html->image($product->image, ['alt' => "photo ".$product->nom, 'fullBase' => true, "align" => "right"]); ?>
+        <br/><br/>
+        <i><?= $product->description ?></i>
+        <br/><br/>
         <?= $this->Html->link('Choisir accompagnement', ['action' => 'choose2', $plat, $product->id]) ?>
-        <br/>
-        <br/>
     </div>
     <?php endforeach; ?>
+</div>

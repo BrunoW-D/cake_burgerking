@@ -37,6 +37,7 @@ $cakeDescription = 'BurgerKing Livraison';
     <nav class="top-bar expanded" data-topbar role="navigation">
         <section class="top-bar-section">
             <ul class="left">
+                <li><?= $this->Html->image("logo.png") ?></li>
                 <li><?= $this->Html->link("Restaurants", ['controller' => 'Restaurants', 'action' => 'map']) ?></li>
                 <li><?= $this->Html->link("Menus", ['controller' => 'Meals', 'action' => 'index']) ?></li>
 

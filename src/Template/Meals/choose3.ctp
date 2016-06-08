@@ -1,9 +1,8 @@
-<?php //echo $this->element('menu'); ?>
-
-<div>
+<?php echo $this->element('menu'); ?>
+<div class="index large-9 medium-8 columns content">
     <h4><?php echo "Menu ".$meal->nom ?></h4>
     <br/>
-    <?= $meal->description ?>
+    <i><?= $meal->description ?></i>
     <br/>
 
     <form method="post" >

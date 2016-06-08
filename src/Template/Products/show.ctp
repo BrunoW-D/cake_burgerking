@@ -1,17 +1,18 @@
 
 
-    <?php //echo $this->element('menu'); ?>
+    <?php echo $this->element('menu'); ?>
+    <div class="index large-9 medium-8 columns content">
 
     <?php foreach ($products as $product): ?>
-    <div>
+    <div class="row">
         <h4><?= $product->nom ?></h4>
+        <?= $this->Html->image($product->image, ['alt' => "photo ".$product->nom, 'fullBase' => true, "align" => "right"]); ?>
+        
+        <i><?= $product->description ?></i>
         <br/>
-        <?= $product->description ?>
         <br/>
         Prix : <?= $product->prix ?> €
-        <br/>
-        <?= $this->Html->image($product->image, ['alt' => "photo ".$product->nom, 'fullBase' => true]); ?>
-        <br/>
+        <br/><br/>
         
         <?php
             /*echo $this->Form->create($form, ['action' => 'show']);
@@ -37,10 +38,11 @@
         <img alt="" border="0" src="https://www.paypalobjects.com/fr_XC/i/scr/pixel.gif" width="1" height="1">
         </form>
         
-        <br/>
-        <br/>
+        
     </div>
     <?php endforeach; ?>
+
+    </div>
 
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script> -->
     

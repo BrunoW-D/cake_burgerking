@@ -1,5 +1,9 @@
 
-    <h1 id="titre">Nos restaurants</h1>
+    <h2 id="titre">Nos restaurants</h2>
+
+    <h5 style="text-align:center; color:grey">Veuillez sélectionnez le restaurant dans lequel vous voulez commander</h5>
+
+
     <?= $this->Html->script('jquery-1.12.0'); ?>
     <script type="text/javascript" src="//www.google.fr/jsapi"></script>
     <script type="text/javascript">

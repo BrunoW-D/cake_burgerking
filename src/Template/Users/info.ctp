@@ -2,8 +2,7 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Editer'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Orders'), ['controller' => 'Orders', 'action' => 'index']) ?> </li>
+        <li><?= $this->Form->postLink(__('Supprimer compte'), ['action' => 'delete', $user->id], ['confirm' => __('Etes-vous sûr de vouloir supprimer votre compte ?')]) ?> </li>
     </ul>
 </nav>
 <div class="users view large-9 medium-8 columns content">
@@ -41,13 +40,15 @@
             <th><?= __('DateInscription') ?></th>
             <td><?= h($user->dateInscription) ?></td>
         </tr>
-    </table>
-    <div class="row">
-        <h4><?= __('Adresse') ?></h4>
-        <?= $this->Text->autoParagraph(h($user->adresse)); ?>
+        <tr>
+            <th><?= __('Adresse') ?></th>
+            <td><?= $this->Text->autoParagraph(h($user->adresse)); ?></td>
+        </tr>
     </div>
-    <div class="related">
-        <h4><?= __('Related Orders') ?></h4>
+
+    </table>
+        <div class="related">
+        <h4><?= __('Commandes passées') ?></h4>
         <?php if (!empty($user->orders)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
