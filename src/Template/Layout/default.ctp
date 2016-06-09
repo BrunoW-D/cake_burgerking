@@ -13,6 +13,8 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+
+// URL VERS AJAX EN DUR (voir script js)
 $cakeDescription = 'BurgerKing Livraison';
 ?>
 <!DOCTYPE html>
@@ -37,7 +39,7 @@ $cakeDescription = 'BurgerKing Livraison';
     <nav class="top-bar expanded" data-topbar role="navigation">
         <section class="top-bar-section">
             <ul class="left">
-                <li><?= $this->Html->image("logo.png") ?></li>
+                <li><?= $this->Html->image("logo.png", [ 'url' => ['controller' => 'Pages', 'action' => 'home'] ]) ?></li>
                 <li><?= $this->Html->link("Restaurants", ['controller' => 'Restaurants', 'action' => 'map']) ?></li>
                 <li><?= $this->Html->link("Menus", ['controller' => 'Meals', 'action' => 'index']) ?></li>
 
@@ -47,6 +49,7 @@ $cakeDescription = 'BurgerKing Livraison';
                 <?php
                 if (!is_null($this->request->session()->read('Auth.User.id'))){
                 ?>
+                    <li><?= $this->Html->link('Mon compte', ['controller' => 'Users', 'action' => 'info', $this->request->session()->read('Auth.User.id')]) ?></li>
                     <li><?= $this->Html->link('Se déconnecter', ['controller' => 'Users', 'action' => 'logout']) ?></li>
                 <?php
                 } else { 
@@ -64,8 +67,9 @@ $cakeDescription = 'BurgerKing Livraison';
     </section>
     <footer>
     </footer>
-    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
+    
+    <?= $this->Html->script("jquery-1.12.0.min.js") ?>
+    <?= $this->Html->script("minicart.min.js") ?>
     <script type="text/javascript">
     (function($) {
         // on peut utiliser le $ de jQuery       

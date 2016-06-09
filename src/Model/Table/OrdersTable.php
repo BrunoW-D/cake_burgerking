@@ -11,7 +11,6 @@ use Cake\Validation\Validator;
  * Orders Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Restaurants
- * @property \Cake\ORM\Association\BelongsTo $Towns
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\HasMany $MealLines
  * @property \Cake\ORM\Association\HasMany $ProductLines
@@ -37,10 +36,6 @@ class OrdersTable extends Table
             'foreignKey' => 'restaurant_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Towns', [
-            'foreignKey' => 'town_id',
-            'joinType' => 'INNER'
-        ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
@@ -64,6 +59,10 @@ class OrdersTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
+
+        $validator
+            ->requirePresence('ville', 'create')
+            ->notEmpty('ville');
 
         $validator
             ->requirePresence('cp', 'create')
@@ -101,7 +100,6 @@ class OrdersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['restaurant_id'], 'Restaurants'));
-        $rules->add($rules->existsIn(['town_id'], 'Towns'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         return $rules;
     }

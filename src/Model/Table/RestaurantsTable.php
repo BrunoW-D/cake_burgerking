@@ -10,7 +10,6 @@ use Cake\Validation\Validator;
 /**
  * Restaurants Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Towns
  * @property \Cake\ORM\Association\HasMany $Orders
  * @property \Cake\ORM\Association\HasMany $Stocks
  */
@@ -31,10 +30,6 @@ class RestaurantsTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
-        $this->belongsTo('Towns', [
-            'foreignKey' => 'town_id',
-            'joinType' => 'INNER'
-        ]);
         $this->hasMany('Orders', [
             'foreignKey' => 'restaurant_id'
         ]);
@@ -54,6 +49,10 @@ class RestaurantsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
+
+        $validator
+            ->requirePresence('ville', 'create')
+            ->notEmpty('ville');
 
         $validator
             ->requirePresence('adresse', 'create')
@@ -85,7 +84,6 @@ class RestaurantsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['town_id'], 'Towns'));
         return $rules;
     }
 }

@@ -10,8 +10,6 @@ use Cake\Validation\Validator;
 /**
  * Towns Model
  *
- * @property \Cake\ORM\Association\HasMany $Orders
- * @property \Cake\ORM\Association\HasMany $Restaurants
  */
 class TownsTable extends Table
 {
@@ -29,13 +27,6 @@ class TownsTable extends Table
         $this->table('towns');
         $this->displayField('id');
         $this->primaryKey('id');
-
-        $this->hasMany('Orders', [
-            'foreignKey' => 'town_id'
-        ]);
-        $this->hasMany('Restaurants', [
-            'foreignKey' => 'town_id'
-        ]);
     }
 
     /**

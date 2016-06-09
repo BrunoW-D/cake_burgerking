@@ -27,7 +27,6 @@
       
           $("#map").addMarker({
             address: listeAdresse[i], // Postale Address
-            //url: "../meals/" + listeId[i], // Link
             icon: "../webroot/img/burgerking_icon.png",
             title: listeVille[i],
             text: "<p>" + listeCp[i] + " - " + listeAdresse[i] + "</p>" + " <a href='../meals?id=" + listeId[i] + "'>Commander chez ce restaurant</a>"

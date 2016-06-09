@@ -11,6 +11,7 @@
         <li>normale : <?= $prix[$meal->id][0]; ?> €</li>
         <li>king size : <?= $prix[$meal->id][1]; ?> €</li>
         </ul>
+        <br/>
         <?= $this->Html->link('Choisir menu', ['action' => 'choose1', $meal->id]) ?>
     </div>
     <?php endforeach; ?>

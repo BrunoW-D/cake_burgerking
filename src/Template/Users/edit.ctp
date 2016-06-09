@@ -2,9 +2,9 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Supprimer mon compte'),
                 ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
+                ['confirm' => __('Etes-vous sûr de vouloir supprimer votre compte ?')]
             )
         ?></li>
         <li><?= $this->Html->link(__('Profil'), ['action' => 'info', $user->id]) ?></li>
@@ -17,8 +17,7 @@
         <?php
             echo $this->Form->input('username');
             echo $this->Form->input('email');
-            echo $this->Form->label('User.password', 'Mot de passe');
-            echo $this->Form->input('password');
+            echo $this->Form->input('password', ['label' => 'Mot de passe']);
             echo $this->Form->hidden('role', ['value' => $user->role]);
             echo $this->Form->input('nom');
             echo $this->Form->input('prenom');

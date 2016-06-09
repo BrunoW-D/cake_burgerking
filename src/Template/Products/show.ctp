@@ -14,14 +14,6 @@
         Prix : <?= $product->prix ?> €
         <br/><br/>
         
-        <?php
-            /*echo $this->Form->create($form, ['action' => 'show']);
-            echo $this->Form->hidden('id', ['value' => $product->id]);
-            echo $this->Form->input('qte');
-            echo $this->Form->button('Ajouter au panier', ['type' => 'submit']);
-            echo $this->Form->end();*/
-        ?>
-
         <form method="post" >
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="business" value="bwangdomingo-facilitator@gmail.com">
@@ -43,6 +35,3 @@
     <?php endforeach; ?>
 
     </div>
-
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script> -->
-    

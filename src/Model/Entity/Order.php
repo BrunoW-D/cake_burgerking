@@ -9,10 +9,9 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $restaurant_id
  * @property \App\Model\Entity\Restaurant $restaurant
- * @property int $town_id
- * @property \App\Model\Entity\Town $town
  * @property int $user_id
  * @property \App\Model\Entity\User $user
+ * @property string ville
  * @property string $cp
  * @property string $adresse
  * @property int $prix

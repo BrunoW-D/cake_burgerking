@@ -2,7 +2,7 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Editer'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Supprimer compte'), ['action' => 'delete', $user->id], ['confirm' => __('Etes-vous sûr de vouloir supprimer votre compte ?')]) ?> </li>
+        <li><?= $this->Form->postLink(__('Supprimer mon compte'), ['action' => 'delete', $user->id], ['confirm' => __('Etes-vous sûr de vouloir supprimer votre compte ?')]) ?> </li>
     </ul>
 </nav>
 <div class="users view large-9 medium-8 columns content">
@@ -54,8 +54,8 @@
             <tr>
                 <th><?= __('Id') ?></th>
                 <th><?= __('Restaurant Id') ?></th>
-                <th><?= __('Town Id') ?></th>
                 <th><?= __('User Id') ?></th>
+                <th><?= __('Ville') ?></th>
                 <th><?= __('Cp') ?></th>
                 <th><?= __('Adresse') ?></th>
                 <th><?= __('Prix') ?></th>
@@ -67,8 +67,8 @@
             <tr>
                 <td><?= h($orders->id) ?></td>
                 <td><?= h($orders->restaurant_id) ?></td>
-                <td><?= h($orders->town_id) ?></td>
                 <td><?= h($orders->user_id) ?></td>
+                <td><?= h($orders->ville) ?></td>
                 <td><?= h($orders->cp) ?></td>
                 <td><?= h($orders->adresse) ?></td>
                 <td><?= h($orders->prix) ?></td>

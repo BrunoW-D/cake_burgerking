@@ -8,8 +8,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $nom
- * @property \App\Model\Entity\Order[] $orders
- * @property \App\Model\Entity\Restaurant[] $restaurants
  */
 class Town extends Entity
 {

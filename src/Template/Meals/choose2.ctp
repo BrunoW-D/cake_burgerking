@@ -7,8 +7,7 @@
         <?= $this->Html->image($product->image, ['alt' => "photo ".$product->nom, 'fullBase' => true, "align" => "right"]); ?>
         <br/><br/>
         <i><?= $product->description ?></i>
-        <br/>
-        <br/>
+        <br/><br/>
         <?= $this->Html->link('Choisir Boisson', ['action' => 'choose3', $plat, $accompagnement, $product->id]) ?>
     </div>
     <?php endforeach; ?>

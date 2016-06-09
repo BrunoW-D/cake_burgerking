@@ -7,8 +7,7 @@ use Cake\ORM\Entity;
  * Restaurant Entity.
  *
  * @property int $id
- * @property int $town_id
- * @property \App\Model\Entity\Town $town
+ * @property string $ville
  * @property string $adresse
  * @property string $cp
  * @property float $latitude

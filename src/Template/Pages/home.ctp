@@ -12,42 +12,8 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-use Cake\Cache\Cache;
-use Cake\Core\Configure;
-use Cake\Datasource\ConnectionManager;
-use Cake\Error\Debugger;
-use Cake\Network\Exception\NotFoundException;
-
-//$this->layout = false;
-
-if (!Configure::read('debug')):
-    throw new NotFoundException();
-endif;
-
-$cakeDescription = 'Burgerking Livraison';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
-</head>
-<body class="home">
-    <!-- <header>
-        <div class="header-image">
-            
-        </div>
-    </header> -->
-    <div id="content">
-        <?= $this->Html->image('banniere2.png', ['fullbase' => true, 'width' => '100%' ])?>
-    </div>
-    <footer>
-    </footer>
-</body>
-</html>
+    
+    <?= $this->Html->image('banniere.png', ['fullbase' => true, 'width' => '100%' ])?>
+    
+    
